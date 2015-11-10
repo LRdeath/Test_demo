@@ -48,7 +48,8 @@
         <activity android:name=".Test_Gson" />
         <activity android:name=".test_swipdelete.Test_swipdelete" />
         <activity android:name=".test_baidumap.Test_baidumap"/>
-
+        <activity android:name=".test_bottommenu.Test_Bottommenu"/>
+        <activity android:name=".test_designsupport.Test_DesignSupport"/>
     </application>
 
 </manifest>

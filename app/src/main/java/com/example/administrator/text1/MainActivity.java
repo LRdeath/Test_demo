@@ -8,6 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.administrator.text1.test_bottommenu.Test_Bottommenu;
+import com.example.administrator.text1.test_designsupport.Test_DesignSupport;
 import com.example.administrator.text1.test_baidumap.Test_baidumap;
 import com.example.administrator.text1.test_swipdelete.Test_swipdelete;
 
@@ -22,7 +24,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         listView = (ListView) findViewById(R.id.main_listview);
-        String[] list = {"测试异步任务", "retrofit框架", "ListView滑动删除", "定位当前（百度地图API）"};
+        String[] list = {"测试异步任务", "retrofit框架", "ListView滑动删除", "定位当前（百度地图API）","最近流行的底部菜单","DesignSupprot库练习"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
@@ -43,6 +45,12 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
                 break;
             case 3:
                 start = Test_baidumap.class;
+                break;
+            case 4:
+                start = Test_Bottommenu.class;
+                break;
+            case 5:
+                start = Test_DesignSupport.class;
                 break;
         }
         if (start != null){
