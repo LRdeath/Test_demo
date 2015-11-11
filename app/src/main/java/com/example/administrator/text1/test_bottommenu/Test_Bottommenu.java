@@ -2,6 +2,7 @@ package com.example.administrator.text1.test_bottommenu;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import com.example.administrator.text1.R;
 public class Test_Bottommenu extends FragmentActivity implements View.OnClickListener {
     private ImageButton btn_puls;
     private TextView textView;
+    private plusmenu_fragment fragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,9 +35,10 @@ public class Test_Bottommenu extends FragmentActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_plus_menu:
-                plusmenu_fragment fragment = new plusmenu_fragment();
+                fragment = new plusmenu_fragment();
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_plus_menu,fragment)
+                        .setCustomAnimations(R.anim.fab_in,R.anim.fab_out,R.anim.fab_in,R.anim.fab_out)
+                        .replace(R.id.fragment_plus_menu, fragment)
                         .commit();
                 break;
             case R.id.plus_menu_bottom1:
@@ -51,5 +54,16 @@ public class Test_Bottommenu extends FragmentActivity implements View.OnClickLis
                 textView.setText("啦啦啦软糖");
                 break;
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            if( fragment!= null && fragment.isVisible()){
+                fragment.dismiss();
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

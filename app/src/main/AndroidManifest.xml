@@ -50,6 +50,7 @@
         <activity android:name=".test_baidumap.Test_baidumap"/>
         <activity android:name=".test_bottommenu.Test_Bottommenu"/>
         <activity android:name=".test_designsupport.Test_DesignSupport"/>
+
     </application>
 
 </manifest>

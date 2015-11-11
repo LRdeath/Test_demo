@@ -56,7 +56,7 @@ public class plusmenu_fragment extends Fragment implements View.OnClickListener 
         }
     }
 
-    private void dismiss() {
+    public void dismiss() {
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .remove(this)
