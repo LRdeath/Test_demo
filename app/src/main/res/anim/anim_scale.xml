@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <scale
+        android:duration="3000"
+        android:fillAfter="true"
+        android:fromXScale="0.0"
+        android:fromYScale="0.0"
+        android:pivotY="0%"
+        android:pivotX="50%"
+        android:toXScale="1.4"
+        android:toYScale="1.4"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        />
+
+    <!--
+    缩放动画：
+    fromXScale：起始时X坐标上的伸缩尺寸
+    toXScale：  结束时X坐标上的伸缩尺寸
+    fromYScale：起始时Y坐标上的伸缩尺寸
+    toYScale：  结束时Y坐标上的伸缩尺寸
+    （以上四种属性取值范围 0.0 - 1.0 )
+    pivotX：动画相对于物件的X坐标的开始位置
+    pivotY：动画相对于物件的Y坐标的开始位置
+    （以上取值为 0% - 100% ，50%为中点位置）
+    fillAfter 动画在结束后是否被应用，true为 结束后物件保持动画结束的状态，取值为布尔型
+
+属性：interpolator 指定一个动画的插入器
+      有三种动画插入器:
+            accelerate_decelerate_interpolator  加速-减速 动画插入器
+            accelerate_interpolator        加速-动画插入器
+            decelerate_interpolator        减速- 动画插入器
+        其他的属于特定的动画效果
+    -->
+</set>

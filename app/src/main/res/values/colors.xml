@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="error_color">#f75555</color>
+    <color name="App_Primary">#55e51fff</color>
+    <color name="chess_bg">#BBAD6E</color>
+</resources>

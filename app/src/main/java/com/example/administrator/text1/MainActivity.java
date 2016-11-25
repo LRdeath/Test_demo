@@ -8,6 +8,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.administrator.text1.RecyclerView.Main_RecyclerView;
+import com.example.administrator.text1.animation.Test_anim;
+import com.example.administrator.text1.chess.MyChess;
 import com.example.administrator.text1.test_bottommenu.Test_Bottommenu;
 import com.example.administrator.text1.test_designsupport.Test_DesignSupport;
 import com.example.administrator.text1.test_baidumap.Test_baidumap;
@@ -24,7 +27,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         listView = (ListView) findViewById(R.id.main_listview);
-        String[] list = {"测试异步任务", "retrofit框架", "ListView滑动删除", "定位当前（百度地图API）","最近流行的底部菜单","DesignSupprot库练习"};
+        String[] list = {"测试异步任务", "retrofit框架", "ListView滑动删除", "定位当前（百度地图API）","最近流行的底部菜单","DesignSupprot库练习","RecyclerView练习","基础动画效果","五子棋"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
@@ -51,6 +54,15 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
                 break;
             case 5:
                 start = Test_DesignSupport.class;
+                break;
+            case 6:
+                start = Main_RecyclerView.class;
+                break;
+            case 7:
+                start = Test_anim.class;
+                break;
+            case 8:
+                start = MyChess.class;
                 break;
         }
         if (start != null){

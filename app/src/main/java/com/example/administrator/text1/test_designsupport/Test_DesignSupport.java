@@ -1,27 +1,52 @@
 package com.example.administrator.text1.test_designsupport;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.design.widget.TextInputLayout;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.EditText;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Window;
+import android.widget.TableLayout;
 
 import com.example.administrator.text1.R;
 
 /**
  * Created by Administrator on 2015/11/10.
  */
-public class Test_DesignSupport extends Activity {
+public class Test_DesignSupport extends AppCompatActivity {
     private TextInputLayout tv_password;
     private TextInputLayout tv_num;
+    private DrawerLayout mdrawerLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test_designsupport);
-        tv_num = (TextInputLayout) findViewById(R.id.test_ds_1);
+        setContentView(R.layout.navigationview);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_design);
+        setSupportActionBar(toolbar);
+
+        ActionBar ab = getSupportActionBar();
+        ab.setHomeAsUpIndicator(R.drawable.ic_menu);
+        ab.setDisplayHomeAsUpEnabled(true);//左上角的图标显示
+
+        mdrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.design_viewpager);
+        if(viewPager!=null){
+
+        }
+        TableLayout tableLayout = (TableLayout) findViewById(R.id.tab_design);
+
+
+
+
+
+
+
+
+        /*tv_num = (TextInputLayout) findViewById(R.id.test_ds_1);
         tv_password = (TextInputLayout) findViewById(R.id.test_ds_2);
         tv_password.setHint("密码");
         final TextInputLayout textInputLayout = (TextInputLayout) findViewById(R.id.til_pwd);
@@ -46,6 +71,6 @@ public class Test_DesignSupport extends Activity {
             @Override
             public void afterTextChanged(Editable s) {
             }
-        });
+        });*/
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <translate
+        android:duration="3000"
+        android:fromXDelta="30"
+        android:fromYDelta="30"
+        android:toXDelta="-80"
+        android:toYDelta="300"/>
+
+    <!--
+    fromXdelte：起始时X的坐标位置
+    fromYdelte：起始时Y的坐标位置
+    toXdelte： 结束时X的坐标位置
+    toYdelte： 结束时Y的坐标位置
+    （坐标值位整型值）
+    -->
+
+</set>

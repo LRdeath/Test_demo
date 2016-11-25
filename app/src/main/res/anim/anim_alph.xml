@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <alpha
+        android:duration="3000"
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        />
+    <!--
+    透明度渐变动画：
+    durtion: 持续时间 （以毫秒为单位）
+    fromAlphe：起始透明度
+    toAlpha：终止透明度 (透明度取值 0.0 — 1.0）
+    -->
+
+</set>
