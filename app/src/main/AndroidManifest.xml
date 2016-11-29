@@ -50,7 +50,7 @@
         <activity android:name=".test_baidumap.Test_baidumap"/>
         <activity android:name=".test_bottommenu.Test_Bottommenu"/>
         <activity android:name=".test_designsupport.Test_DesignSupport"
-            android:theme="@style/Theme.Design.NoActionBar"/>
+            android:theme="@style/DesignTheme"/>
         <activity android:name=".test_designsupport.Test_FloatButton"/>
         <activity android:name=".RecyclerView.Main_RecyclerView"/>
         <activity android:name=".animation.Test_anim"/>

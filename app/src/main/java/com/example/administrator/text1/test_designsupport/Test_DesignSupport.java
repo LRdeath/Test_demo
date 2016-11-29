@@ -1,12 +1,17 @@
 package com.example.administrator.text1.test_designsupport;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.Window;
 import android.widget.TableLayout;
 
@@ -33,11 +38,29 @@ public class Test_DesignSupport extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);//左上角的图标显示
 
         mdrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.design_viewpager);
-        if(viewPager!=null){
+        NavigationView navigationView = (NavigationView) findViewById(R.id.design_navigationview);
+        if (navigationView != null) {
 
         }
-        TableLayout tableLayout = (TableLayout) findViewById(R.id.tab_design);
+
+
+            FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.flbtn_design);
+            floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Snackbar.make(view, "这是一个SnackBar", Snackbar.LENGTH_LONG).setAction("给朕退下！", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                        }
+                    }).show();
+                }
+            });
+            ViewPager viewPager = (ViewPager) findViewById(R.id.design_viewpager);
+            if (viewPager != null) {
+
+            }
+            TabLayout tableLayout = (TabLayout) findViewById(R.id.tab_design);
 
 
 
@@ -72,5 +95,5 @@ public class Test_DesignSupport extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });*/
+        }
     }
-}

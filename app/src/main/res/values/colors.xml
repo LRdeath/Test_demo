@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="error_color">#f75555</color>
-    <color name="App_Primary">#55e51fff</color>
+    <color name="App_Primary">#9e1daf</color>
     <color name="chess_bg">#BBAD6E</color>
+    <color name="App_PrimaryDark">#55980cab</color>
+    <color name="Text_Primary">#ffffff</color>
+
 </resources>

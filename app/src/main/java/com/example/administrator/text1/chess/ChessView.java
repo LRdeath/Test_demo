@@ -1,6 +1,8 @@
 package com.example.administrator.text1.chess;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -31,6 +33,7 @@ public class ChessView extends View {
     private float ratioPieceOfLineHeight = 3 * 1.0f / 4;
     private List<Point> mWhiteArray = new ArrayList<Point>(), mBlackArray = new ArrayList<Point>();
     private boolean mIsWhite = false;
+    private boolean IsGameOver = false;
 
     public ChessView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -79,7 +82,7 @@ public class ChessView extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-
+        if(IsGameOver) return false;
         int action = event.getAction();
         if(action == MotionEvent.ACTION_UP) {
             int x = (int) event.getX();
@@ -96,10 +99,87 @@ public class ChessView extends View {
                 mBlackArray.add(p);
 
             invalidate(); // 请求重绘
+            checkIsGameOver(p);
             mIsWhite = !mIsWhite;
 
         }
         return true;
+    }
+
+    private void checkIsGameOver(Point p) {
+        if(mIsWhite){
+           if(dfsCheck(mWhiteArray,p)){
+               IsGameOver =true;
+               showAlertDialog("白棋胜利！");
+           }
+        } else if (dfsCheck(mBlackArray, p)) {
+            IsGameOver =true;
+            showAlertDialog("黑棋胜利！");
+        }
+    }
+
+    private void showAlertDialog(String s) {
+        new AlertDialog.Builder(getContext())
+                .setMessage(s)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                }).show();
+    }
+
+    private boolean dfsCheck(List<Point> mWhiteArray, Point p) {
+        int a=1,s=1;
+        //横向判断
+        while(mWhiteArray.contains(new Point(p.x-a,p.y))){
+            a++;
+            s++;
+        }
+        a=1;
+        while(mWhiteArray.contains(new Point(p.x+a,p.y))){
+            a++;
+            s++;
+        }
+        if(s==5)return true;
+        //竖向判断
+        a=1;s=1;
+        while(mWhiteArray.contains(new Point(p.x,p.y-a))){
+            a++;
+            s++;
+        }
+        a=1;
+        while(mWhiteArray.contains(new Point(p.x,p.y+a))){
+            a++;
+            s++;
+        }
+        if(s==5)return true;
+        //右斜向判断
+        a=1;s=1;
+        while(mWhiteArray.contains(new Point(p.x-a,p.y-a))){
+            a++;
+            s++;
+        }
+        a=1;
+        while(mWhiteArray.contains(new Point(p.x+a,p.y+a))){
+            a++;
+            s++;
+        }
+        if(s==5)return true;
+        //左斜向判断
+        a=1;s=1;
+        while(mWhiteArray.contains(new Point(p.x-a,p.y+a))){
+            a++;
+            s++;
+        }
+        a=1;
+        while(mWhiteArray.contains(new Point(p.x+a,p.y-a))){
+            a++;
+            s++;
+        }
+        if(s==5)return true;
+
+        return false;
     }
 
     private Point makeSurePiece(int x, int y) {
@@ -121,7 +201,7 @@ public class ChessView extends View {
             canvas.drawLine(startX, y, x, y, mPaint);//画横线
             canvas.drawLine(y, startX, y, x, mPaint);//竖线
         }
-        //画棋子
+         //画棋子
          //为了效率，mWhitePoint.size()直接提前获取，不用每次获取
             for(int i = 0, n = mWhiteArray.size(); i < n; i++ ) {
                 Point whitePoint = mWhiteArray.get(i);
@@ -135,5 +215,7 @@ public class ChessView extends View {
                     (blackPoint.x + (1-ratioPieceOfLineHeight)/2)*mLineHeight,
                     (blackPoint.y + (1-ratioPieceOfLineHeight)/2)*mLineHeight, null);
         }
+
+
     }
 }

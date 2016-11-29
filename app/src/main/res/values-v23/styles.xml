@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <style name="DesignTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+                <!-- Customize your theme here. -->
+                <item name="colorAccent">#1743b7</item>
+                <item name="colorPrimary">@color/App_Primary</item>
+                <item name="colorPrimaryDark">@color/App_PrimaryDark</item>
+                <item name="android:titleTextColor">@color/Text_Primary</item>
+        </style>
+</resources>
