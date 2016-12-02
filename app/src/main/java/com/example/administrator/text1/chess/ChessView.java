@@ -3,6 +3,7 @@ package com.example.administrator.text1.chess;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -10,6 +11,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -34,9 +36,16 @@ public class ChessView extends View {
     private List<Point> mWhiteArray = new ArrayList<Point>(), mBlackArray = new ArrayList<Point>();
     private boolean mIsWhite = false;
     private boolean IsGameOver = false;
+    private int line_num = 10;
+    private String Tag = "CHESSVIEW";
 
     public ChessView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        TypedArray a = context.obtainStyledAttributes(attrs,R.styleable.ChessView);
+        line_num = a.getInteger(R.styleable.ChessView_line_num,15);
+        Log.e(Tag,""+line_num);
+        MaxLine = line_num;
+        a.recycle();
         setBackgroundColor(Color.parseColor("#BBAD6E"));
         init();
 

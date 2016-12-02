@@ -30,6 +30,6 @@ public class ListFragment extends Fragment {
 
     public void setupRecyclerView(RecyclerView recyclerView) {
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
-        recyclerView.setAdapter();
+        //recyclerView.setAdapter();
     }
 }
